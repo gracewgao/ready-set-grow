@@ -1,0 +1,39 @@
+TODO important: 
+- prevent creation of duplicate IDs
+    - uuid (npm install uuid)
+- create the real database's outline
+
+TODO not that important
+- prune the timestamp string for readability (?)
+
+
+
+JSON idea (consult with the group for more ideas!)
+{
+    "id": 123,
+    "name": {
+        "first": "Kai Wei",
+        "last": "Mo"
+    },
+    "joined": "Sat Oct 31 2020 15:44:44 GMT-0400 (Eastern Daylight Time)",
+    "last_updated": "Sat Oct 31 2020 21:33:30 GMT-0400 (Eastern Daylight Time)",
+    "plants" : [
+        "plant_id": {
+            "nickname": "Planty",
+            "latin_name": "Coffea arabica",
+            "category": "Living room",
+            
+            "water": 2.1,
+            "light": 0.70,
+            "humidity": 0.45,
+
+            "streak": 36,
+            "last_watered": 12,
+            "date_acquired": "Tue Sep 08 2020"
+        },
+        ...
+    ]
+}
+
+My videos:
+- https://www.youtube.com/watch?v=SU4dZ-qgR1Y
