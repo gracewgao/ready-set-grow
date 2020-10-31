@@ -10,7 +10,7 @@ var port = new SerialPort('COM3', {baudRate: 9600});
 const parser = new Readline();
 port.pipe(parser);
 
-const logIntervalMinutes = 0.1;
+const logIntervalMinutes = 5;
 let lastMoment = new Date();
 
 function tryParseJson (str) {
@@ -36,6 +36,7 @@ port.on('open', function () {
 				Item: {
 					temperature: sensorData.temperature,
 					humidity: sensorData.humidity,
+          water_level: sensorData.water_level,
 					datetime: moment.getTime()
 				}
 			}, function(err, data) {
