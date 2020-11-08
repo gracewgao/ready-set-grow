@@ -46,7 +46,7 @@ let add_plant = (id, nickname, latin_name) => {
 }
 
 /* -- testing -- */
-
+/*
 let nickname = "Planty";
 let id = "3ebbb6da-979b-4ea8-ad08-b24a56f7a0ee";
 add_plant(id);
