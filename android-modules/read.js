@@ -3,7 +3,8 @@ var AWS = require("aws-sdk");
 let awsConfig = {
     "region": "us-east-2",
     "endpoint": "http://dynamodb.us-east-2.amazonaws.com",
-    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL", "secretAccessKey": "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"
+    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL",
+    "secretAccessKey": "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"
 };
 
 AWS.config.update(awsConfig);
@@ -12,7 +13,7 @@ let docClient = new AWS.DynamoDB.DocumentClient();
 
 let fetchByKey = id => {
     var params = {
-        TableName: "kw_test",
+        TableName: "user_info",
         Key: {
             "id": id
         }
@@ -25,11 +26,11 @@ let fetchByKey = id => {
             console.log("users::fetchOneByKey::success - " + JSON.stringify(data, null, 2));
         }
     })
-}
+};
 
 /* -- testing -- */
 
 /*
-let id = 30;
-fetchByKey(30);
-*/
+let id = "";
+fetchByKey(id);
+/**/

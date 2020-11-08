@@ -11,44 +11,47 @@ var AWS = require("aws-sdk");
 let awsConfig = {
     "region": "us-east-2",
     "endpoint": "http://dynamodb.us-east-2.amazonaws.com",
-    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL", "secretAccessKey": "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"
+    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL",
+    "secretAccessKey": "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"
 };
 
 AWS.config.update(awsConfig);
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 
-let save = (id, f_name, l_name) => {
+let save = (id, username, password, f_name, l_name) => {
 
     var input = {
-        "id": id, "name": `{"first" : ${f_name}, "last": ${l_name}}`, "joined": new Date().toString(), "last_updated": new Date().toString()//, "is_deleted": false
+        "id": id,
+        "username": username, // 3rd party auth ?
+        "password": password,
+        "name": `{"first" : ${f_name}, "last": ${l_name}}`,
+        "joined": new Date().toString(),
+        "last_updated": new Date().toString(),
+        "plants": []
     };
     var params = {
-        TableName: "kw_test",
+        TableName: "user_info",
         Item: input
     };
     docClient.put(params, function (err, data) {
 
         if (err) {
-            console.log("users::save::error - " + JSON.stringify(err, null, 2));                      
+            console.log("users::save::error - " + JSON.stringify(err, null, 2));
         } else {
-            console.log("users::save::success");                      
+            console.log("users::save::success");
         }
     });
-}
+};
 
 /* -- testing -- */
 
-/*
-let id = 30;
-let f_name = "Tahani";
-let l_name = "Al-Jamil";
-
-save(id, f_name, l_name);
-*/
 
 let id = getUUIDv4();
+let username = "MyUsername";
+let password = "MyPassword";
 let f_name = "Chidi";
 let l_name = "Anagonye";
 
-save(id, f_name, l_name);
+save(id, username, password, f_name, l_name);
+/**/

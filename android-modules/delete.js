@@ -1,17 +1,19 @@
 var AWS = require("aws-sdk");
+
 let awsConfig = {
     "region": "us-east-2",
     "endpoint": "http://dynamodb.us-east-2.amazonaws.com",
-    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL", "secretAccessKey": "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"
-
+    "accessKeyId": "AKIAZ4AC4ZEBLZWBM5EL",
+    "secretAccessKey": "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"
 };
+
 AWS.config.update(awsConfig);
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 
 let remove = id => {
     var params = {
-        TableName: "kw_test",
+        TableName: "user_info",
         Key: {
             "id": id
         }
@@ -24,11 +26,11 @@ let remove = id => {
             console.log("users::delete::success");
         }
     });
-}
+};
 
 /* -- testing -- */
 
-/*
-let id = 30;
+
+let id = "3a867524-1bbf-4cfa-8583-0514cc2b37db";
 remove(id);
-*/
+/**/

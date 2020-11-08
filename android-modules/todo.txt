@@ -1,11 +1,5 @@
-TODO important: 
-- prevent creation of duplicate IDs
-    - uuid (npm install uuid)
-- create the real database's outline
-
 TODO not that important
 - prune the timestamp string for readability (?)
-
 
 
 JSON idea (consult with the group for more ideas!)
