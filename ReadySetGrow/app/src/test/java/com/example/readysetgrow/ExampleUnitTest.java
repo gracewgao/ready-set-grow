@@ -1,4 +1,4 @@
-package com.readysetgrow;
+package com.example.readysetgrow;
 
 import org.junit.Test;
 
