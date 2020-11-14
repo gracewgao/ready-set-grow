@@ -30,13 +30,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        public async Task GetItemAsync(AWSCredentials credentials, RegionEndpoint region)
-        {
-            var client = new AmazonDynamoDBClient(credentials, region);
-            Table books = Table.LoadTable(client, "Books");
-            var book = await books.GetItemAsync(id);
-        }
     }
 
     @Override
