@@ -30,14 +30,19 @@ public class SomethingUnique {
         // Create a new credentials provider
         Regions COGNITO_IDENTITY_POOL_REGION = Regions.US_EAST_2;
         String COGNITO_IDENTITY_POOL_ID = "us-east-2:c8cbd0cc-0850-4dec-97f6-3d0abb947289";
+        // String COGNITO_IDENTITY_POOL_ID = "678610913538";
         String DYNAMODB_TABLE = "user_info";
+
+
 
         credentialsProvider = new CognitoCachingCredentialsProvider(
                 context, COGNITO_IDENTITY_POOL_ID, COGNITO_IDENTITY_POOL_REGION);
 
         // Create a connection to DynamoDB
         dbClient = new AmazonDynamoDBClient(credentialsProvider);
-
+         /*
+        DynamoDBContext context = new DynamoDBContext(client);
+         */
         // Create a table reference
         dbTable = Table.loadTable(dbClient, DYNAMODB_TABLE);
     }
