@@ -1,8 +1,3 @@
-TODO not that important
-- prune the timestamp string for readability (?)
-
-
-JSON idea (consult with the group for more ideas!)
 {
     "id": 123,
     "name": {
@@ -29,5 +24,4 @@ JSON idea (consult with the group for more ideas!)
     ]
 }
 
-My videos:
 - https://www.youtube.com/watch?v=SU4dZ-qgR1Y
