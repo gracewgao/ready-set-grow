@@ -20,8 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:tabIndicatorColor="#91CA8F"
-        tools:ignore="MissingConstraints">
+        app:tabIndicatorColor="#91CA8F" >
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabBedroom"
