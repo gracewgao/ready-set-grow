@@ -182,7 +182,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-api/dev/1606769036033-2020-11-30T20:43:56.033Z/sls-api.zip"
+          "S3Key": "serverless/sls-api/dev/1606772734311-2020-11-30T21:45:34.311Z/sls-api.zip"
         },
         "FunctionName": "sls-api-dev-createPost",
         "Handler": "handler.createPost",
@@ -205,14 +205,14 @@
         "CreatePostLogGroup"
       ]
     },
-    "CreatePostLambdaVersiongRJgzQKzWmYum6JukH9pIIMIPmkr1F7JXCCzwrHI0No": {
+    "CreatePostLambdaVersionuFaSrvxPeDEc2gGXhhnk521jGezYQadnUkhw9FL4pI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreatePostLambdaFunction"
         },
-        "CodeSha256": "JVgWIUM73CdPcOtOXcRlu1AMr6qqy3Glng/yxT9q82k="
+        "CodeSha256": "XZTajqLyAwlyPNWbGFWq3tGfjqmUXc8aqVKbHPtGZP8="
       }
     },
     "GetAllPostsLambdaFunction": {
@@ -222,7 +222,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-api/dev/1606769036033-2020-11-30T20:43:56.033Z/sls-api.zip"
+          "S3Key": "serverless/sls-api/dev/1606772734311-2020-11-30T21:45:34.311Z/sls-api.zip"
         },
         "FunctionName": "sls-api-dev-getAllPosts",
         "Handler": "handler.getAllPosts",
@@ -245,14 +245,14 @@
         "GetAllPostsLogGroup"
       ]
     },
-    "GetAllPostsLambdaVersionmT9OInz0STzLYYubJBw9K49wchcTU6KGvp8xGcjqS0": {
+    "GetAllPostsLambdaVersionduDBE1ookPUImnOoYbWwSeBEiyd30eUTJzk7j6XmqPk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAllPostsLambdaFunction"
         },
-        "CodeSha256": "JVgWIUM73CdPcOtOXcRlu1AMr6qqy3Glng/yxT9q82k="
+        "CodeSha256": "XZTajqLyAwlyPNWbGFWq3tGfjqmUXc8aqVKbHPtGZP8="
       }
     },
     "GetPostLambdaFunction": {
@@ -262,7 +262,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-api/dev/1606769036033-2020-11-30T20:43:56.033Z/sls-api.zip"
+          "S3Key": "serverless/sls-api/dev/1606772734311-2020-11-30T21:45:34.311Z/sls-api.zip"
         },
         "FunctionName": "sls-api-dev-getPost",
         "Handler": "handler.getPost",
@@ -285,14 +285,14 @@
         "GetPostLogGroup"
       ]
     },
-    "GetPostLambdaVersionoaY7splHQ2jNBagbPG2279UIzczC4wArNyQrIKpk6A": {
+    "GetPostLambdaVersionwvw1LLGViUtLDFGiRGsQUSlrH2nVRVEX2igJqjtxSU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPostLambdaFunction"
         },
-        "CodeSha256": "JVgWIUM73CdPcOtOXcRlu1AMr6qqy3Glng/yxT9q82k="
+        "CodeSha256": "XZTajqLyAwlyPNWbGFWq3tGfjqmUXc8aqVKbHPtGZP8="
       }
     },
     "UpdatePostLambdaFunction": {
@@ -302,7 +302,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-api/dev/1606769036033-2020-11-30T20:43:56.033Z/sls-api.zip"
+          "S3Key": "serverless/sls-api/dev/1606772734311-2020-11-30T21:45:34.311Z/sls-api.zip"
         },
         "FunctionName": "sls-api-dev-updatePost",
         "Handler": "handler.updatePost",
@@ -325,14 +325,14 @@
         "UpdatePostLogGroup"
       ]
     },
-    "UpdatePostLambdaVersionhaphB3JbtQXLNIQYupEIgqkgTyqZCwa7sCcgmycEwU4": {
+    "UpdatePostLambdaVersionKHBE4q7DKyeVEDK4eE1fPepbghnUgOQEdn0iqQes0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdatePostLambdaFunction"
         },
-        "CodeSha256": "JVgWIUM73CdPcOtOXcRlu1AMr6qqy3Glng/yxT9q82k="
+        "CodeSha256": "XZTajqLyAwlyPNWbGFWq3tGfjqmUXc8aqVKbHPtGZP8="
       }
     },
     "DeletePostLambdaFunction": {
@@ -342,7 +342,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-api/dev/1606769036033-2020-11-30T20:43:56.033Z/sls-api.zip"
+          "S3Key": "serverless/sls-api/dev/1606772734311-2020-11-30T21:45:34.311Z/sls-api.zip"
         },
         "FunctionName": "sls-api-dev-deletePost",
         "Handler": "handler.deletePost",
@@ -365,14 +365,14 @@
         "DeletePostLogGroup"
       ]
     },
-    "DeletePostLambdaVersionbuTQfauhosolKMaQTHgMV80MUlwC7u2CZW6wQ38eJE": {
+    "DeletePostLambdaVersionEdVadetFRyfypkJFt0fEVWCBhtDoUVVBd4FY0u5xVlQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeletePostLambdaFunction"
         },
-        "CodeSha256": "JVgWIUM73CdPcOtOXcRlu1AMr6qqy3Glng/yxT9q82k="
+        "CodeSha256": "XZTajqLyAwlyPNWbGFWq3tGfjqmUXc8aqVKbHPtGZP8="
       }
     },
     "ApiGatewayRestApi": {
@@ -644,7 +644,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1606769033802": {
+    "ApiGatewayDeployment1606772731806": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -877,31 +877,31 @@
     "CreatePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreatePostLambdaVersiongRJgzQKzWmYum6JukH9pIIMIPmkr1F7JXCCzwrHI0No"
+        "Ref": "CreatePostLambdaVersionuFaSrvxPeDEc2gGXhhnk521jGezYQadnUkhw9FL4pI"
       }
     },
     "GetAllPostsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetAllPostsLambdaVersionmT9OInz0STzLYYubJBw9K49wchcTU6KGvp8xGcjqS0"
+        "Ref": "GetAllPostsLambdaVersionduDBE1ookPUImnOoYbWwSeBEiyd30eUTJzk7j6XmqPk"
       }
     },
     "GetPostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPostLambdaVersionoaY7splHQ2jNBagbPG2279UIzczC4wArNyQrIKpk6A"
+        "Ref": "GetPostLambdaVersionwvw1LLGViUtLDFGiRGsQUSlrH2nVRVEX2igJqjtxSU"
       }
     },
     "UpdatePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdatePostLambdaVersionhaphB3JbtQXLNIQYupEIgqkgTyqZCwa7sCcgmycEwU4"
+        "Ref": "UpdatePostLambdaVersionKHBE4q7DKyeVEDK4eE1fPepbghnUgOQEdn0iqQes0"
       }
     },
     "DeletePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeletePostLambdaVersionbuTQfauhosolKMaQTHgMV80MUlwC7u2CZW6wQ38eJE"
+        "Ref": "DeletePostLambdaVersionEdVadetFRyfypkJFt0fEVWCBhtDoUVVBd4FY0u5xVlQ"
       }
     },
     "ServiceEndpoint": {

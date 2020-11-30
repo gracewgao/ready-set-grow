@@ -3,14 +3,14 @@ const AWS = require('aws-sdk');
 const db = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 const postsTable = process.env.POSTS_TABLE;
 
-function uuidv4() {
+function uuidv4() { // unused
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
   });
 }
 
-function sortByDate(a, b) {
+function sortByUsername(a, b) {
   if (a.username > b.username) {
     return -1;
   }
