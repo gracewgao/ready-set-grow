@@ -3,15 +3,15 @@ const AWS = require('aws-sdk');
 const db = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 const postsTable = process.env.POSTS_TABLE;
 
-function uuidv4() {
+function uuidv4() { // unused
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
   });
 }
 
-function sortByDate(a, b) {
-  if (a.createdAt > b.createdAt) {
+function sortByUsername(a, b) {
+  if (a.username > b.username) {
     return -1;
   }
   return 1;
@@ -32,25 +32,26 @@ module.exports.createPost = (event, context, callback) => {
   const reqBody = JSON.parse(event.body);
 
   if (
-    !reqBody.title ||
-    reqBody.title.trim() === '' ||
-    !reqBody.body ||
-    reqBody.body.trim() === ''
+    !reqBody.username ||
+    reqBody.username.trim() === '' ||
+    !reqBody.password ||
+    reqBody.password.trim() === ''
   ) {
     return callback(
       null,
       response(400, {
-        error: 'Post must have a title and body and they must not be empty'
+        error: 'Post must have a non-empty username and password.'
       })
     );
   }
 
   const post = {
-    id: uuidv4(),
-    createdAt: new Date().toISOString(),
-    userId: 1,
-    title: reqBody.title,
-    body: reqBody.body
+    // id: uuidv4(),
+    // createdAt: new Date().toISOString(),
+    // userId: 1,
+    username: reqBody.username,
+    password: reqBody.password,
+    plant: {}
   };
 
   return db
@@ -73,34 +74,19 @@ module.exports.getAllPosts = (event, context, callback) => {
     })
     .promise()
     .then((res) => {
-      callback(null, response(200, res.Items.sort(sortByDate)));
+      callback(null, response(200, res.Items.sort(sortByUsername)));
     })
     .catch((err) => callback(null, response(err.statusCode, err)));
 };
 
-// get number of posts
-module.exports.getPosts = (event, context, callback) => {
-  const numberOfPosts = event.pathParameters.number;
-  const params = {
-    TableName: postsTable,
-    Limit: numberOfPosts
-  };
-  return db
-    .scan(params)
-    .promise()
-    .then((res) => {
-      callback(null, response(200, res.Items.sort(sortByDate)));
-    })
-    .catch((err) => callback(null, response(err.statusCode, err)));
-};
 
 // get a single post
 module.exports.getPost = (event, context, callback) => {
-  const id = event.pathParameters.id;
+  const username = event.pathParameters.username;
 
   const params = {
     Key: {
-      id: id
+      username: username
     },
     TableName: postsTable
   };
@@ -117,20 +103,21 @@ module.exports.getPost = (event, context, callback) => {
 
 // update a post
 module.exports.updatePost = (event, context, callback) => {
-  const id = event.pathParameters.id;
+  // const usernameAsId = event.pathParameters.username;
   const reqBody = JSON.parse(event.body);
-  const { body, title } = reqBody;
+  const { username, password } = reqBody; // ?
 
   const params = {
     Key: {
-      id: id
+      username: username
     },
     TableName: postsTable,
-    ConditionExpression: 'attribute_exists(id)',
-    UpdateExpression: 'SET title = :title, body = :body',
+    ConditionExpression: 'attribute_exists(username)',
+    UpdateExpression: 'SET username = :username, password = :password, plant = :plant',
     ExpressionAttributeValues: {
-      ':title': title,
-      ':body': body
+      ':username': username,
+      ':password': password,
+      ':plant': plant
     },
     ReturnValues: 'ALL_NEW'
   };
@@ -148,10 +135,10 @@ module.exports.updatePost = (event, context, callback) => {
 
 // delete a post
 module.exports.deletePost = (event, context, callback) => {
-  const id = event.pathParameters.id;
+  const username = event.pathParameters.username;
   const params = {
     Key: {
-      id: id
+      username: username
     },
     TableName: postsTable
   };
@@ -166,26 +153,23 @@ module.exports.deletePost = (event, context, callback) => {
 
 /*
 (serverless deploy)
-Serverless: Stack update finished...
 Service Information
 service: sls-api
 stage: dev
 region: us-east-2
 stack: sls-api-dev
-resources: 40
+resources: 34
 api keys:
   None
 endpoints:
-  POST - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/post
-  GET - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/posts
-  GET - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/posts/{number}
-  GET - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/post/{id}
-  PUT - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/post/{id}
-  DELETE - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/post/{id}
+  POST - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/user
+  GET - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/users
+  GET - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/user/{username}
+  PUT - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/user/{username}
+  DELETE - https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/user/{username}
 functions:
   createPost: sls-api-dev-createPost
   getAllPosts: sls-api-dev-getAllPosts
-  getPosts: sls-api-dev-getPosts
   getPost: sls-api-dev-getPost
   updatePost: sls-api-dev-updatePost
   deletePost: sls-api-dev-deletePost
