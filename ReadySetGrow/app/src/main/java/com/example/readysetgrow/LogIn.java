@@ -5,8 +5,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LogIn extends AppCompatActivity {
     private Button Backspace;
@@ -30,9 +37,46 @@ public class LogIn extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openUrl(View view) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://8g3vuzbhi4.execute-api.us-east-2.amazonaws.com/dev/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-    public void openUrl(View view){
-        Intent openUrlIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://readysetgrow.auth.us-east-2.amazoncognito.com/login?response_type=code&client_id=6jv7uteqclfos8m44fneh3f1dh&redirect_uri=http://localhost:4200"));
-        startActivity(openUrlIntent);
+        // thanks retrofit
+        RSG_API api = retrofit.create(RSG_API.class);
+
+        // TODO: check if username already exists
+        TextView username_text = findViewById((R.id.username_text));
+        TextView password_text = findViewById((R.id.password_text));
+
+        User user = new User(username_text.getText().toString(),
+                password_text.getText().toString());
+        Call<User> call = api.createUser(user);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if (!response.isSuccessful()) {
+                    // tv.setText("Code: " + response.code());
+                    return;
+                }
+
+                User userResponse = response.body();
+                String content = "";
+                content += "Code: " + response.code() + "\n";
+                content += "Username: " + userResponse.getUsername() + "\n";
+                content += "Password: " + userResponse.getPassword() + "\n";
+                content += "\n";
+
+                // tv.setText(content);
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                // tv.setText((t.getMessage()));
+            }
+        });
     }
 }
