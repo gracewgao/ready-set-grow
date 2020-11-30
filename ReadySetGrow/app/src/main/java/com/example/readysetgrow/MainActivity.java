@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button SignUp;
+    private Button Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +23,23 @@ public class MainActivity extends AppCompatActivity {
                 openSignUpPage();
             }
         });
+
+        Login = (Button) findViewById(R.id.Login);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLogIn();
+            }
+        });
     }
 
     public void openSignUpPage(){
         Intent intent = new Intent(this, SignUpPage.class);
+        startActivity(intent);
+    }
+
+    public void openLogIn(){
+        Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
 }

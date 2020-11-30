@@ -8,25 +8,39 @@ import android.view.View;
 import android.widget.Button;
 
 public class SignUpPage extends AppCompatActivity {
-
-    private Button button;
+    private Button Login2;
+    private Button Backspace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
 
-        button = (Button) findViewById(R.id.Login2);
-        button.setOnClickListener(new View.OnClickListener() {
+        Login2 = (Button) findViewById(R.id.Login2);
+        Login2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openActivity2();
+            public void onClick(View view) {
+                openLogIn();
+            }
+        });
+
+        Backspace = (Button) findViewById(R.id.Backspace);
+        Backspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
             }
         });
     }
 
-    public void openActivity2() {
-        Intent intent = new Intent(this, MainActivity2.class);
+    public void openLogIn(){
+        Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }

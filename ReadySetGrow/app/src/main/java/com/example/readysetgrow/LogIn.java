@@ -3,6 +3,7 @@ package com.example.readysetgrow;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,5 +28,11 @@ public class LogIn extends AppCompatActivity {
     public void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+
+    public void openUrl(View view){
+        Intent openUrlIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://readysetgrow.auth.us-east-2.amazoncognito.com/login?response_type=code&client_id=6jv7uteqclfos8m44fneh3f1dh&redirect_uri=http://localhost:4200"));
+        startActivity(openUrlIntent);
     }
 }
