@@ -3,7 +3,7 @@ frameworkVersion: '2'
 
 custom:
   settings:
-    POSTS_TABLE: posts
+    POSTS_TABLE: user-info
 
 provider:
   name: aws
@@ -27,37 +27,31 @@ functions:
     handler: handler.createPost
     events:
     - http:
-        path: /post
+        path: /user
         method: post
   getAllPosts:
     handler: handler.getAllPosts
     events:
     - http:
-        path: /posts
-        method: get
-  getPosts:
-    handler: handler.getPosts
-    events:
-    - http:
-        path: /posts/{number}
+        path: /users
         method: get
   getPost:
     handler: handler.getPost
     events:
     - http:
-        path: /post/{id}
+        path: /user/{username}
         method: get
   updatePost:
     handler: handler.updatePost
     events:
     - http:
-        path: /post/{id}
+        path: /user/{username}
         method: put
   deletePost:
     handler: handler.deletePost
     events:
     - http:
-        path: /post/{id}
+        path: /user/{username}
         method: delete
 
 resources:
@@ -66,10 +60,10 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
-        - AttributeName: "id"
+        - AttributeName: "username"
           AttributeType: "S"
         KeySchema:
-        - AttributeName: "id"
+        - AttributeName: "username"
           KeyType: "HASH"
         ProvisionedThroughput:
           ReadCapacityUnits: 1
