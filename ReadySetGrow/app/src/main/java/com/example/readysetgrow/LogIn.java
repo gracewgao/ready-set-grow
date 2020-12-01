@@ -44,8 +44,8 @@ public class LogIn extends AppCompatActivity {
         // thanks retrofit
         RSG_API api = retrofit.create(RSG_API.class);
 
-        TextView username_text = findViewById((R.id.username_text));
-        TextView password_text = findViewById((R.id.password_text));
+        TextView username_text = findViewById((R.id.login_username));
+        TextView password_text = findViewById((R.id.login_password));
 
         String username = username_text.getText().toString();
         String password = password_text.getText().toString();
@@ -66,6 +66,7 @@ public class LogIn extends AppCompatActivity {
                     if (u.getUsername().equals(username)) {
                         if (u.getPassword().equals(password)) {
                             success[0] = true;
+                            break;
                         }
                     }
                 }

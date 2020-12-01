@@ -54,7 +54,7 @@
                 app:tint="#275D3B" />
 
             <EditText
-                android:id="@+id/password_text"
+                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@null"
@@ -141,7 +141,7 @@
                 app:tint="#8bba5b" />
 
             <EditText
-                android:id="@+id/username_text"
+                android:id="@+id/login_username"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@null"
