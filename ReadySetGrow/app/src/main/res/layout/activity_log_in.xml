@@ -94,7 +94,7 @@
         android:layout_marginTop="87dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="172dp"
-        android:onClick="openUrl"
+        android:onClick="checkLoginInfo"
         android:background="@drawable/login_pg2"
         android:text="Sign in"
         android:textAllCaps="false"

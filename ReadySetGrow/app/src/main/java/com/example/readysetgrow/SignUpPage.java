@@ -17,20 +17,10 @@ public class SignUpPage extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up_page);
 
         Login2 = (Button) findViewById(R.id.Login2);
-        Login2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openLogIn();
-            }
-        });
+        Login2.setOnClickListener(view -> openLogIn());
 
         Backspace = (Button) findViewById(R.id.Backspace);
-        Backspace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
+        Backspace.setOnClickListener(view -> openMainActivity());
     }
 
     public void openLogIn(){
@@ -42,5 +32,4 @@ public class SignUpPage extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }
