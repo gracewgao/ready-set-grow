@@ -217,10 +217,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.781" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -253,15 +253,15 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.1"
-        android:textColor="#E62828"
+        android:text="9.5"
+        android:textColor="#129A30"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintHorizontal_bias="0.705"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.781" />
 
     <TextView
         android:id="@+id/textView20"
@@ -281,14 +281,14 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Last watered: 12 hours ago"
+        android:text="Last watered: Just Now"
         android:textColor="#B8B8B8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <TextView
         android:id="@+id/textView21"
@@ -345,17 +345,4 @@
         app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/ic_backspace"
         tools:ignore="VectorDrawableCompat" />
-
-    <Button
-        android:id="@+id/water"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Water Now"
-        android:textColor="#909090"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
 </androidx.constraintlayout.widget.ConstraintLayout>

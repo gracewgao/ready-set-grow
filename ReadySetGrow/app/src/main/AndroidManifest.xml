@@ -12,14 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadySetGrow">
-        <activity android:name=".MyPlant"></activity>
+        <activity android:name=".MyPlant2"></activity>
+        <activity android:name=".MyPlant" />
         <activity android:name=".MainActivity2" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".LogIn"></activity>
+        <activity android:name=".LogIn" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -29,6 +30,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
