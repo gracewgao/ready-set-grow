@@ -1,6 +1,4 @@
-#include <Ethernet.h>
 #include <DHT.h>
-#define ethernet_h
 #include <aREST.h>
 #include <Servo.h>
 
@@ -22,18 +20,6 @@ Servo myservo;
 DHT dht(DHTPIN, DHTTYPE);
 aREST rest = aREST();
 
-// telnet defaults to port 23
-EthernetServer server = EthernetServer(23);
-
-// the media access control (ethernet hardware) address for the shield:
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  
-//the IP address for the shield:
-byte ip[] = { 10, 0, 0, 177 };    
-// the router's gateway address:
-byte gateway[] = { 10, 0, 0, 1 };
-// the subnet:
-byte subnet[] = { 255, 255, 0, 0 };
-
 float temperature;
 float humidity;
 float light;
@@ -54,14 +40,6 @@ void setup() {
   rest.variable("light",&light);
   rest.variable("water",&water);
 
-  Ethernet.begin(mac);
-//
-//Ethernet.begin(mac, ip, gateway, subnet);
-
-  server.begin();
-  Serial.print("server IP: ");
-  Serial.println(Ethernet.localIP());
-
   rest.set_id("001");
   
   char const *name = "ready_set_grow"; 
@@ -69,13 +47,14 @@ void setup() {
   
   dht.begin();
 
-    // Initially turn off all LEDs
-    digitalWrite(redLED, LOW);
-    digitalWrite(greenLED, LOW);
+  digitalWrite(redLED, LOW);
+  digitalWrite(greenLED, LOW);
+
+  waterPlant("0");
 
 }
 
-String measure_env() {
+String measure() {
   
   float h = dht.readHumidity();
   float t = dht.readTemperature();
@@ -83,7 +62,8 @@ String measure_env() {
   float l = analogRead(lightPin);
 
   humidity = dht.readHumidity();
-  light = analogRead(lightPin);
+  light = analogRead(
+    lightPin);
   temperature = dht.readTemperature();
   water = analogRead(sensorPin);
 
@@ -112,36 +92,26 @@ void changeLight(){
       digitalWrite(redLED, LOW);  
     digitalWrite(greenLED, HIGH);  
     }
-  }
-
-int waterPlant(int open){
   
-  if (open){
+}
+
+int waterPlant(String open){
+  int o = open.toInt();
+  if (o){
     myservo.write(90);
   } else {
     myservo.write(140);
   }
-  return 0;
+  return 1;
 }
 
 void loop() {
 
-delay(1000);
-  // if an incoming client connects, there will be bytes available to read:
-  EthernetClient client = server.available();
-  Serial.println(client.remoteIP());
-  if (client == true) {
-    
-    // read bytes from the incoming client and write them back
-    // to any clients connected to the server:
-    server.write(client.read());
-  }
-
-  rest.handle(client);
+  rest.handle(Serial);
   changeLight();
 
   String message = "";
-  message += measure_env();
+  message += measure();
   
 //  message = "{" + message + "}";
 //
