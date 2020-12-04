@@ -11,6 +11,8 @@
   "dependencies": {
     "aws-sdk": "^2.783.0",
     "dynamodb-doc": "^1.0.0",
+    "express": "^4.17.1",
+    "johnny-five": "^2.0.0",
     "serialport": "^9.0.2"
   }
 }

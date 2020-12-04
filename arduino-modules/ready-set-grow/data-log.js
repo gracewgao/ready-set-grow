@@ -10,7 +10,7 @@ var port = new SerialPort('COM3', {baudRate: 9600});
 const parser = new Readline();
 port.pipe(parser);
 
-const logIntervalMinutes = 5;
+const logIntervalMinutes = 0.25;
 let lastMoment = new Date();
 
 function tryParseJson (str) {
