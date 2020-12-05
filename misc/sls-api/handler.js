@@ -51,7 +51,13 @@ module.exports.createPost = (event, context, callback) => {
     // userId: 1,
     username: reqBody.username,
     password: reqBody.password,
-    plant: {}
+    plantCategory: "Bedroom",
+    plantLatin: "Coffea arabica",
+    plantNick: "Mr. Plant",
+    streak: 0,
+    temperature: 0,
+    soilMoisture: 0,
+    humidity: 0
   };
 
   return db
@@ -102,10 +108,11 @@ module.exports.getPost = (event, context, callback) => {
 };
 
 // update a post
+// exclusively for updating Arduino sensor data
 module.exports.updatePost = (event, context, callback) => {
   // const usernameAsId = event.pathParameters.username;
   const reqBody = JSON.parse(event.body);
-  const { username, password } = reqBody; // ?
+  const { username, streak, temperature, soilMoisture, humidity } = reqBody;
 
   const params = {
     Key: {
@@ -113,11 +120,12 @@ module.exports.updatePost = (event, context, callback) => {
     },
     TableName: postsTable,
     ConditionExpression: 'attribute_exists(username)',
-    UpdateExpression: 'SET username = :username, password = :password, plant = :plant',
+    UpdateExpression: 'SET streak = :streak, temperature = :temperature, soilMoisture = :soilMoisture, humidity = :humidity',
     ExpressionAttributeValues: {
-      ':username': username,
-      ':password': password,
-      ':plant': plant
+      ':streak': streak,
+      ':temperature': temperature,
+      ':soilMoisture': soilMoisture,
+      ':humidity': humidity
     },
     ReturnValues: 'ALL_NEW'
   };
