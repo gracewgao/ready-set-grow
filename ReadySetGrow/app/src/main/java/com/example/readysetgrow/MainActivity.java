@@ -20,28 +20,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SignUp = (Button) findViewById(R.id.SignUp);
-        SignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSignUpPage();
-            }
-        });
+        SignUp.setOnClickListener(view -> openSignUpPage());
 
         Login = (Button) findViewById(R.id.Login);
-        Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openLogIn();
-            }
-        });
+        Login.setOnClickListener(view -> openLogIn());
 
         button = (Button) findViewById(R.id.TEST);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity2();
-            }
-        });
+        button.setOnClickListener(v -> openActivity2());
     }
 
     public void openSignUpPage(){

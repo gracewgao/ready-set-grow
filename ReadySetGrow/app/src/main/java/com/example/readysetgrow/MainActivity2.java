@@ -22,12 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         plant_button = (ImageButton) findViewById(R.id.plant_button);
-        plant_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPlant();
-            }
-        });
+        plant_button.setOnClickListener(v -> openPlant());
     }
 
     public void openPlant(){

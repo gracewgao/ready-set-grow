@@ -20,7 +20,7 @@ public interface RSG_API {
     @GET("user/{username}")
     Call<List<User>> getUser(@Path("username") String u);
 
-    // POST REQUESTS
+    // post one
     @POST("user")
     Call<User> createUser(@Body User u); //auto json-ed by gson
 }
