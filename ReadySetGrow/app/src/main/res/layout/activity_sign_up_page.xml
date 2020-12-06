@@ -247,6 +247,7 @@
                 app:tint="#275D3B" />
 
             <EditText
+                android:id="@+id/signup_password_confirm"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@null"
@@ -288,7 +289,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="172dp"
         android:background="@drawable/login_pg2"
-        android:text="Log in"
+        android:text="Register"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="24dp"

@@ -13,6 +13,10 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.streak = 0;
+        this.temperature = 0;
+        this.soilMoisture = 0;
+        this.humidity = 0;
     }
 
     public String getUsername() {
