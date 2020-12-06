@@ -1,19 +1,16 @@
 #include <DHT.h>
 #include <aREST.h>
 #include <Servo.h>
-
 #include <SPI.h>
+#include <avr/wdt.h>
 
-
-// DHT22 DAT pin 
+// defines pins
 #define DHTPIN 2
 #define sensorPin A0
 #define lightPin A1
-
 #define redLED 13
 #define greenLED 12
 
-// Type of DHT sensor
 #define DHTTYPE DHT11
 
 Servo myservo;
@@ -26,14 +23,30 @@ float light;
 float water;
 
 void setup() {
+  
+  // connects everything
   Serial.begin(115200);
-
   myservo.attach(9);
+  dht.begin();
+
+  // setup hardware positions
   pinMode(redLED, OUTPUT);
   pinMode(greenLED, OUTPUT);
+  digitalWrite(redLED, LOW);
+  digitalWrite(greenLED, LOW);
+  waterPlant("0");
+
+//  wdt_enable(WDTO_15MS);
+
+  // aREST setup
+  char const *name = "ready_set_grow"; 
+  rest.set_name(name);
 
   char const *func = "openValve"; 
   rest.function(func, waterPlant);
+
+  char const *f = "delay"; 
+  rest.function(f, delayLight);
   
   rest.variable("temperature",&temperature);
   rest.variable("humidity",&humidity);
@@ -41,80 +54,55 @@ void setup() {
   rest.variable("water",&water);
 
   rest.set_id("001");
-  
-  char const *name = "ready_set_grow"; 
-  rest.set_name(name);
-  
-  dht.begin();
-
-  digitalWrite(redLED, LOW);
-  digitalWrite(greenLED, LOW);
-
-  waterPlant("0");
 
 }
 
 String measure() {
-  
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
-  int w = analogRead(sensorPin);
-  float l = analogRead(lightPin);
-
   humidity = dht.readHumidity();
-  light = analogRead(
-    lightPin);
   temperature = dht.readTemperature();
+  light = analogRead(lightPin);
   water = analogRead(sensorPin);
-
-  String message = "";
-
-//  if (isnan(t) || isnan(h) || isnan(w)|| isnan(w)) {
-//    return message;
-//  }
-
-//  // Create JSON as a message
-//  message = message + "\"humidity\": " + h;
-//  message = message + ", \"temperature\": " + t;
-//  message = message + ", \"water_level\": " + w;
-//  
-  return message;
 }
 
 void changeLight(){
 
-  bool red = water < 500;
+  bool red = water > 500;
   
   if (red){
     digitalWrite(redLED, HIGH);  
     digitalWrite(greenLED, LOW);  
-    } else {
-      digitalWrite(redLED, LOW);  
+  } else {
+    digitalWrite(redLED, LOW);  
     digitalWrite(greenLED, HIGH);  
-    }
-  
+  }
+
 }
 
-int waterPlant(String open){
-  int o = open.toInt();
-  if (o){
-    myservo.write(90);
-  } else {
-    myservo.write(140);
+void delayLight(){
+  
+
+
+    digitalWrite(redLED, HIGH);  
+    digitalWrite(greenLED, LOW); 
+        delay(10000); 
+        digitalWrite(redLED, LOW);  
+    digitalWrite(greenLED, HIGH);  
+
   }
+
+int waterPlant(String time){
+  int t = time.toInt();
+  myservo.write(140);
+  myservo.write(90);
+  delay(t);
+  myservo.write(140);
+  
   return 1;
 }
 
 void loop() {
-
   rest.handle(Serial);
-  changeLight();
-
-  String message = "";
-  message += measure();
-  
-//  message = "{" + message + "}";
-//
-//  // Send message
-//  Serial.println(message);
+//  changeLight();
+  measure();
+//  wdt_reset();
 }
