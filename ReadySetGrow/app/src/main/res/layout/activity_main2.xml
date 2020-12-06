@@ -7,50 +7,152 @@
     app:flow_horizontalAlign="center"
     tools:context=".MainActivity2">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabBar"
-        android:layout_width="344dp"
-        android:layout_height="51dp"
-        app:tabIndicatorColor="#FFA4A4"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="110dp">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabBedroom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bedroom" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabLiving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Living Room" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabKitchen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kitchen" />
-    </com.google.android.material.tabs.TabLayout>
-
     <androidx.viewpager.widget.ViewPager
 
         android:id="@+id/viewPager"
 
-        android:layout_height="0dp"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back!"
+        android:textColor="#737373"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Plants"
-        android:textSize="24sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="27dp" />
+        android:textColor="#DAA58E"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="133dp"
+        android:layout_height="48dp"
+        android:background="#E8E7E7"
+        android:text="Add Plant +"
+        android:textColor="#B5B5B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+        app:srcCompat="@drawable/menu_icon2"
+        app:tint="#B1B1B1" />
+
+    <ImageButton
+        android:id="@+id/plant_button"
+        android:layout_width="323dp"
+        android:layout_height="448dp"
+        android:tint="#72000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581"
+        app:srcCompat="@drawable/plant_example" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mr. Plant"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.254" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coffea arabica"
+        android:textColor="#EFEFEF"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258"
+        app:srcCompat="@drawable/menu_icon"
+        app:tint="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:text="The plant in my bedroom that I take really bad care of"
+        android:textColor="#EFEFEF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
