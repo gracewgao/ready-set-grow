@@ -51,13 +51,17 @@ module.exports.createPost = (event, context, callback) => {
     // userId: 1,
     username: reqBody.username,
     password: reqBody.password,
-    plantCategory: "Bedroom",
-    plantLatin: "Coffea arabica",
-    plantNick: "Mr. Plant",
-    streak: 0,
-    temperature: 0,
-    soilMoisture: 0,
-    humidity: 0
+    // plantCategory: "Bedroom",
+    // plantLatin: "Coffea arabica",
+    // plantNick: "Mr. Plant",
+    // streak: 0,
+    // temperature: 0,
+    // soilMoisture: 0,
+    // humidity: 0
+    streak: reqBody.streak,
+    temperature: reqBody.temperature,
+    soilMoisture: reqBody.soilMoisture,
+    humidity: reqBody.humidity
   };
 
   return db
