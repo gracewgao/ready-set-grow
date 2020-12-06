@@ -1,21 +1,10 @@
 package com.example.readysetgrow;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MyPlant2 extends AppCompatActivity {
     private ImageButton back_button;
@@ -29,7 +18,7 @@ public class MyPlant2 extends AppCompatActivity {
         back_button.setOnClickListener(v -> openBack());
     }
 
-    public void openBack(){
+    public void openBack() {
         Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
